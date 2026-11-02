@@ -1,4 +1,3 @@
-
 """
 INSURANCE CHARGES PREDICTION
 Professional Machine Learning Dashboard
@@ -28,71 +27,81 @@ st.set_page_config(
 
 
 # ============================================================
-# PROFESSIONAL COLORFUL DASHBOARD THEME
+# MODERN EXECUTIVE DASHBOARD THEME
 # ============================================================
 
 st.markdown("""
 <style>
 
+/* Main App background and font styling */
 .stApp {
-    background-color: #101827;
-    color: #F1F5F9;
+    background-color: #0F172A;
+    color: #E2E8F0;
+    font-family: 'Inter', sans-serif;
 }
 
 .block-container {
-    max-width: 1250px;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    max-width: 1300px;
+    padding-top: 2.5rem;
+    padding-bottom: 3rem;
 }
 
+/* Typography headers with gradient/vibrant accents */
 h1 {
-    color: #60A5FA !important;
+    color: #818CF8 !important;
     font-weight: 800 !important;
+    letter-spacing: -0.025em;
 }
 
 h2 {
-    color: #38BDF8 !important;
+    color: #A5B4FC !important;
     font-weight: 700 !important;
 }
 
 h3 {
-    color: #2DD4BF !important;
+    color: #38BDF8 !important;
     font-weight: 600 !important;
 }
 
 p, label, li {
-    color: #CBD5E1;
+    color: #94A3B8;
 }
 
+/* Metric Cards */
 [data-testid="stMetric"] {
-    background-color: #1C2940;
+    background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
     border: 1px solid #334155;
-    border-radius: 14px;
-    padding: 20px;
+    border-radius: 16px;
+    padding: 22px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 [data-testid="stMetricLabel"] {
-    color: #CBD5E1 !important;
+    color: #94A3B8 !important;
+    font-size: 0.875rem !important;
 }
 
 [data-testid="stMetricValue"] {
-    color: #60A5FA !important;
-    font-weight: 800;
+    color: #818CF8 !important;
+    font-weight: 800 !important;
 }
 
 [data-testid="stMetricDelta"] {
-    color: #2DD4BF !important;
+    color: #34D399 !important;
 }
 
+/* Dataframe & Expanders */
 [data-testid="stDataFrame"] {
     border: 1px solid #334155;
-    border-radius: 12px;
+    border-radius: 14px;
+    background-color: #1E293B;
 }
 
 [data-testid="stExpander"] {
-    background-color: #1C2940;
+    background-color: #1E293B;
     border: 1px solid #334155;
-    border-radius: 12px;
+    border-radius: 14px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
 }
 
 .stAlert {
@@ -101,10 +110,12 @@ p, label, li {
 
 hr {
     border-color: #334155;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 .stCaption {
-    color: #94A3B8;
+    color: #64748B;
 }
 
 </style>
@@ -124,16 +135,18 @@ evaluate a Linear Regression model, and estimate insurance charges.
 
 st.markdown("""
 <div style="
-    background-color:#1C2940;
-    padding:15px;
-    border-radius:12px;
-    border-left:5px solid #3B82F6;
+    background: linear-gradient(90deg, #1E293B 0%, #111827 100%);
+    padding: 18px 22px;
+    border-radius: 14px;
+    border: 1px solid #334155;
+    border-left: 6px solid #6366F1;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 ">
-    <span style="color:#60A5FA;font-weight:bold;">
+    <span style="color:#818CF8;font-weight:700;font-size:1.05rem;">
         MACHINE LEARNING PRACTICAL
     </span>
     <br>
-    <span style="color:#CBD5E1;">
+    <span style="color:#94A3B8;font-size:0.95rem;">
         Algorithm: Linear Regression | Dataset: Medical Insurance
         | Questions 6–13
     </span>
@@ -367,8 +380,8 @@ st.header("📉  Regression Plot")
 
 fig1, ax1 = plt.subplots(figsize=(10, 6))
 
-fig1.patch.set_facecolor("#101827")
-ax1.set_facecolor("#1C2940")
+fig1.patch.set_facecolor("#0F172A")
+ax1.set_facecolor("#1E293B")
 
 ax1.scatter(
     y_test,
@@ -385,7 +398,7 @@ line_max = max(y_test.max(), y_pred.max())
 ax1.plot(
     [line_min, line_max],
     [line_min, line_max],
-    color="#F87171",
+    color="#F43F5E",
     linestyle="--",
     linewidth=2.5,
     label="Ideal prediction"
@@ -393,32 +406,32 @@ ax1.plot(
 
 ax1.set_xlabel(
     "Actual Insurance Charges ($)",
-    color="#F1F5F9"
+    color="#E2E8F0"
 )
 
 ax1.set_ylabel(
     "Predicted Insurance Charges ($)",
-    color="#F1F5F9"
+    color="#E2E8F0"
 )
 
 ax1.set_title(
     "Actual vs Predicted Insurance Charges",
-    color="#60A5FA",
+    color="#818CF8",
     fontsize=14,
     fontweight="bold"
 )
 
-ax1.tick_params(colors="#CBD5E1")
+ax1.tick_params(colors="#94A3B8")
 
 for spine in ax1.spines.values():
     spine.set_color("#334155")
 
-ax1.grid(color="#334155", alpha=0.5)
+ax1.grid(color="#334155", alpha=0.4)
 
 ax1.legend(
-    facecolor="#1C2940",
+    facecolor="#1E293B",
     edgecolor="#334155",
-    labelcolor="#F1F5F9"
+    labelcolor="#E2E8F0"
 )
 
 fig1.tight_layout()
@@ -432,7 +445,7 @@ plt.close(fig1)
 # CONFUSION MATRIX EXPLANATION
 # ============================================================
 
-st.markdown("###: Confusion Matrix Heatmap")
+st.markdown("### ❓ Confusion Matrix Explanation")
 
 st.info("""
 A confusion matrix is suitable for classification models.
@@ -487,29 +500,32 @@ predicted_charge = model.predict(
 
 st.markdown("""
 <div style="
-    background-color:#1C2940;
-    border:1px solid #14B8A6;
-    border-left:6px solid #14B8A6;
-    border-radius:14px;
-    padding:22px;
+    background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+    border: 1px solid #34D399;
+    border-left: 6px solid #34D399;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
 ">
     <div style="
-        color:#2DD4BF;
-        font-size:16px;
-        font-weight:bold;
+        color: #34D399;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
     ">
         ESTIMATED INSURANCE CHARGES
     </div>
     <div style="
-        color:#F8FAFC;
-        font-size:36px;
-        font-weight:800;
-        margin-top:8px;
+        color: #F8FAFC;
+        font-size: 40px;
+        font-weight: 800;
+        margin-top: 8px;
+        letter-spacing: -0.025em;
     ">
         $""" + f"{predicted_charge:,.2f}" + """
     </div>
-    <div style="color:#94A3B8;font-size:13px;">
-        Linear Regression Prediction
+    <div style="color: #64748B; font-size: 13px; margin-top: 4px;">
+        Linear Regression Prediction Model
     </div>
 </div>
 """, unsafe_allow_html=True)
